@@ -1,70 +1,85 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar class="main-color">
-    <ion-title>Edu Child</ion-title>
+    <ion-title>Codigo de Barras</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
-
-  <form (ngSubmit)="logIn()" [formGroup]="loginForm">
-    <div class="input-group">
-      <ion-item>
-        <ion-input type="email" placeholder="Correo Electrónico" formControlName="email"></ion-input>
-      </ion-item>
-      <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
-        <span *ngIf="email.errors?.required">Correo electrónico obligatorio.</span>
-        <span *ngIf="email.errors?.email">Correo electrónico inválido.</span>
-      </div>
-      <ion-item>
-        <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
-      </ion-item>
-      <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
-        <span *ngIf="password.errors?.required">Contraseña obligatoria.</span>
-        <span *ngIf="password.errors?.minlength">Debe tener mínimo 6 caracteres de longitud.</span>
-      </div>
-    </div>
-
-    <ion-button type="submit" expand="block" [disabled]="!loginForm.valid" class="main-color">Iniciar sesión
-    </ion-button>
-    <ion-button type="button" expand="block" class="main-color" [routerLink]="['/registration']">No sos usuario?
-      Registrate!
-    </ion-button>
-
-  </form>
-  <ion-grid>
-    <ion-row class="ion-align-items-center">
-      <ion-col>
-        <img src="./assets/img/joystick.png" style="width:64px;" />
-      </ion-col>
-      <ion-col>
-        <img src="./assets/img/joystick.png" style="width:64px;" />
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-align-items-center">
-      <ion-col class="">
-        <div>
-          <ion-fab-button class="main-color ion-text-center" (click)="loguearAs('admin')">Admin</ion-fab-button>
+  <ion-card>
+    <img class="splash" src="./assets/img/icon.png" style="width:256px;" />
+    <ion-card-header>
+      <ion-card-subtitle>Iniciar Sesión</ion-card-subtitle>
+      <ion-card-title></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form (ngSubmit)="logIn()" [formGroup]="loginForm">
+        <div class="input-group">
+          <ion-item>
+            <ion-input type="email" placeholder="Correo Electrónico" formControlName="email"></ion-input>
+          </ion-item>
+          <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+            <span *ngIf="email.errors?.required">Correo electrónico obligatorio.</span>
+            <span *ngIf="email.errors?.email">Correo electrónico inválido.</span>
+          </div>
+          <ion-item>
+            <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+          </ion-item>
+          <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+            <span *ngIf="password.errors?.required">Contraseña obligatoria.</span>
+            <span *ngIf="password.errors?.minlength">Debe tener mínimo 6 caracteres de longitud.</span>
+          </div>
         </div>
-      </ion-col>
-      <ion-col class="ion-align-self-center">
-        <ion-fab-button class="main-color" (click)="loguearAs('invitado')">Invitado</ion-fab-button>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-justify-content-end">
-      <ion-col class="ion-align-self-end">
-        <ion-fab-button class="main-color" (click)="loguearAs('usuario')">Usuario</ion-fab-button>
-      </ion-col>
-      <ion-col>
-        <ion-fab-button class="main-color" (click)="loguearAs('anonimo')">Anonimo</ion-fab-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-fab-button class="main-color" (click)="loguearAs('tester')">Tester</ion-fab-button>
-      </ion-col>
-      <ion-col></ion-col>
-    </ion-row>
-  </ion-grid>
+
+        <ion-button type="submit" expand="block" [disabled]="!loginForm.valid" class="main-color">Iniciar sesión
+        </ion-button>
+        <ion-button type="button" expand="block" class="main-color" [routerLink]="['/registration']">No sos usuario?
+          Registrate!
+        </ion-button>
+
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button type="button" shape="round" expand="block" class="main-color" (click)="loguearAs('admin')">
+    <ion-icon name="qr-code-outline" slot="end"></ion-icon>
+    Admin
+  </ion-button>
+  <ion-button type="button" shape="round" expand="block" class="main-color" (click)="loguearAs('invitado')">
+    <ion-icon name="qr-code-outline" slot="end"></ion-icon>
+    Invitado
+  </ion-button>
+  <ion-button type="button" shape="round" expand="block" class="main-color" (click)="loguearAs('usuario')">
+    <ion-icon name="qr-code-outline" slot="end"></ion-icon>
+    Usuario
+  </ion-button>
+  <ion-button type="button" shape="round" expand="block" class="main-color" (click)="loguearAs('anonimo')">
+    <ion-icon name="qr-code-outline" slot="end"></ion-icon>
+    Anonimo
+  </ion-button>
+  <ion-button type="button" shape="round" expand="block" class="main-color" (click)="loguearAs('tester')">
+    <ion-icon name="qr-code-outline" slot="end"></ion-icon>
+    Tester
+  </ion-button>
 
 
 </ion-content>
+
+<!-- <ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Card</ion-title>
+  </ion-toolbar>
+</ion-header>,
+<ion-content fullscreen>
+  <ion-card>
+    <img src="./madison.jpg" />
+    <ion-card-header>
+      <ion-card-subtitle>Destination</ion-card-subtitle>
+      <ion-card-title>Madison, WI</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin
+      Territory in 1836.
+    </ion-card-content>
+  </ion-card>
+</ion-content> -->
