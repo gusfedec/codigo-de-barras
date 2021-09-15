@@ -2,5 +2,10 @@
 	"appId": "io.ionic.starter",
 	"appName": "codigo-de-barras",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 3000
+		}
+	}
 }
