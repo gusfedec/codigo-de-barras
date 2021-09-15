@@ -1,0 +1,7 @@
+{
+  "name": "codigo-de-barras",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
